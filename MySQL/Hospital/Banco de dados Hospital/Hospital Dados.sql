@@ -1,0 +1,65 @@
+INSERT INTO ESPECIALIDADE (NOME_ESPECIALIDADE)
+VALUES
+('Pediatria'),
+('Clínica Geral'),
+('Gastroenterologia'),
+('Dermatologia');
+
+INSERT INTO MEDICO (NOME, CPF, DATA_DE_NASCIMENTO, EMAIL, TIPO)
+VALUES
+('Dr. João Silva', '12345678901', '1980-03-15', 'joao.silva@hospital.com', 1),
+('Dra. Ana Souza', '98765432100', '1975-07-22', 'ana.souza@hospital.com', 2);
+
+INSERT INTO ENFERMEIRO (NOME, CPF, DATA_DE_NASCIMENTO, EMAIL, TIPO)
+VALUES
+('Maria Oliveira', '32165498700', '1990-01-10', 'maria.oliveira@hospital.com', 1),
+('Carlos Santos', '65498732100', '1988-05-25', 'carlos.santos@hospital.com', 2);
+
+INSERT INTO CONVENIO (NOME_CONVENIO)
+VALUES
+('Unimed'),
+('Amil'),
+('Bradesco Saúde');
+
+INSERT INTO PACIENTE (NOME, DATA_DE_NASCIMENTO, CPF, TELEFONE, EMAIL, ID_CONVENIO_CLIENTE)
+VALUES
+('Paulo Ferreira', '1995-06-12', '11122233344', '11988887777', 'paulo.ferreira@gmail.com', 1),
+('Juliana Ramos', '1987-02-20', '55566677788', '11977776666', 'juliana.ramos@gmail.com', 2),
+('Marcos Lima', '2000-09-05', '99988877766', '11999995555', 'marcos.lima@gmail.com', 3);
+
+INSERT INTO QUARTO ()
+VALUES (), (), (), ();  -- Cria 4 quartos (IDs automáticos: 1, 2, 3, 4)
+
+INSERT INTO MEDICAMENTO (NOME)
+VALUES
+('Paracetamol 500mg'),
+('Amoxicilina 500mg'),
+('Omeprazol 20mg');
+
+INSERT INTO CONSULTA (DATA_HORA, PACIENTE, MEDICO, CONVENIO)
+VALUES
+('2025-11-10 09:30:00', 1, 1, 1),
+('2025-11-10 10:00:00', 2, 2, 2);
+
+INSERT INTO RECEITA (DATA_EMISSAO, ID_MEDICAMENTO, OBSERVACAO, ID_CONSULTA)
+VALUES
+('2025-11-10', 1, 'Tomar 1 comprimido a cada 8 horas.', 1),
+('2025-11-10', 3, 'Tomar 1 cápsula antes do café da manhã.', 2);
+
+-- -------------------------------------------------------
+
+-- Paciente 1 internado no quarto 1
+INSERT INTO INTERNACAO (DATA_ENTRADA, DATA_PREVISAO_ALTA, ID_INTERNACAO_PACIENTE, ID_INTERNACAO_MEDICO, ID_INTERNACAO_ENFERMEIRO, ID_INTERNACAO_CONVENIO, ID_NUMERO_QUARTO)
+VALUES
+('2025-11-09', '2025-11-15', 1, 1, 1, 1, 1);
+
+-- Paciente 2 no mesmo quarto (aceito, 2 vagas)
+INSERT INTO INTERNACAO (DATA_ENTRADA, DATA_PREVISAO_ALTA, ID_INTERNACAO_PACIENTE, ID_INTERNACAO_MEDICO, ID_INTERNACAO_ENFERMEIRO, ID_INTERNACAO_CONVENIO, ID_NUMERO_QUARTO)
+VALUES
+('2025-11-09', '2025-11-15', 2, 2, 2, 2, 1);
+
+-- Paciente 3 em outro quarto
+INSERT INTO INTERNACAO (DATA_ENTRADA, DATA_PREVISAO_ALTA, ID_INTERNACAO_PACIENTE, ID_INTERNACAO_MEDICO, ID_INTERNACAO_ENFERMEIRO, ID_INTERNACAO_CONVENIO, ID_NUMERO_QUARTO)
+VALUES
+('2025-11-09', '2025-11-18', 3, 1, 2, 3, 2);
+
